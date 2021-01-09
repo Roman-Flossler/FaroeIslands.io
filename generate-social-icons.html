@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Faroe Islands - quick travel guide, map of places with photos</title>
+	<meta name='theme-color' content='#7A7F7B'>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">	
+    <style>
+        body { background: black}
+
+        #s3_ {            
+            border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+        }
+
+        #s3_simple {
+            border-radius: 0 100% 100% 0; /* brapple */            
+        }
+
+
+        #s3_simg {
+            border-radius: 0 100% 100% 0; /* brapple */            
+        }        
+
+        .gallery a, .wp-block-gallery a {
+            background-color: red;
+            display: inline-block;
+            border-radius: 2px;
+            overflow: hidden;
+            line-height: 0;
+            padding: 0;
+            filter: none;
+            opacity: 1;
+            border: 11px solid white;
+            width: 100px;
+            height: 200px;            
+        }
+
+    </style>
+</head>
+<body style="position: relative;">
+
+<div class="gallery" >
+    <a id="s3_" href="photos/klakkur-kunoy.jpg">
+
+    </a>
+
+    <a id="s3_simple" href="photos/klakkur-kunoy.jpg">
+
+    </a>
+
+
+    <a id="s3_simple" href="photos/klakkur-kunoy.jpg" style="background-image:url('https://www.faroeislands.io/images/s3.jpg'); background-size: 66px;">
+
+    </a>
+    
+    <a id="s3_simple" href="photos/klakkur-kunoy.jpg" style="width: auto; height: auto;">
+        <img id="s3_simg" src="https://www.faroeislands.io/images/s3.jpg" width="140" height="280" alt="Kunoy island - also view from Klakkur" />
+    </a>    
+
+    <a id="s3_" href="photos/klakkur-kunoy.jpg" style="width: auto; height: auto;">
+        <img id="s3_" src="https://www.faroeislands.io/images/s3.jpg" width="140" height="280" alt="Kunoy island - also view from Klakkur" />
+    </a> 
+
+    <!--a id="s3_simple" href="photos/klakkur-kunoy.jpg" style=" position: absolute; top:300px; left: 10px;">
+        <img style="position: absolute; left: 11px;" id="s3_simg" src="https://www.faroeislands.io/images/s3.jpg" width="140" height="280" alt="Kunoy island - also view from Klakkur" />
+    </a> 
+
+    <a id="s3_" href="photos/klakkur-kunoy.jpg" style="width: auto; height: auto; position: absolute;  top:300px; left: 190px;">
+        <img id="s3_" src="https://www.faroeislands.io/images/s3.jpg" width="140" height="280" alt="Kunoy island - also view from Klakkur" />
+    </a--> 
+
+</div>
+
+<textarea id="ta" cols="200" rows="30" style="margin-left: 3em; background: rgb(49, 49, 49); color: rgb(187, 187, 187); font-size: 16px;"></textarea>
+<script>
+
+escapeHtml = function(string) {
+    var entityMap = {  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': '&quot;', "'": '&#39;', "/": '&#x2F;' };
+    return String(string).replace(/[&<>"'\/]/g, function (s) {
+        return entityMap[s];
+    });
+};
+
+        var urlToShare = "https://www.Faroeislands.io/";
+        var urlToShareEnc = encodeURIComponent(urlToShare);
+        var h1ToShare = "FaroeIslands.io - quick and visually rich travel guide to Faroe Islands. ";
+        var caption =  "World's most attractive archipelago with pristine nature. See photos and map with top places.";
+
+        
+        var captionToShare = escapeHtml(caption);
+        var textToShareEnc =  escapeHtml(encodeURIComponent( h1ToShare + caption ));
+        var windowOpen = 'href="';
+        var WindoOpenParams =  '" target="_blank"';
+        var img = "https://www.faroeislands.io/photos/mykines-lightbhouse.jpg";
+        var wrap = "\n"
+        
+        var shareMenu = "<a class='linkedin' " + windowOpen + "https://www.linkedin.com/shareArticle?mini=true&url=" + urlToShareEnc + WindoOpenParams + "></a>" + wrap +
+                "<a class='whatsapp'  " + windowOpen + "https://wa.me/?text=" + urlToShareEnc + " - " + textToShareEnc + WindoOpenParams + "></a>" + wrap +
+                "<a class='mess' " + windowOpen + "fb-messenger://share/?link=" + urlToShareEnc + WindoOpenParams + "></a>" + wrap +
+                "<a class='reddit' " + windowOpen + "https://www.reddit.com/submit?url=" + urlToShareEnc + "&title=" + textToShareEnc + WindoOpenParams + "></a>" + wrap +
+                // "<a class='link' onclick='SSG.showFsTip(\"" + urlToShare + "\")'></a>" +wrap +
+                "<a class='tweet' " + windowOpen + "http://twitter.com/share?text=" + textToShareEnc + "&url=" + urlToShareEnc + WindoOpenParams + "></a>" + wrap +
+                "<a class='pin' " + windowOpen + "http://www.pinterest.com/pin/create/button/?url="+ urlToShareEnc + "&amp;media=" + 
+                img + "&amp;description=" + textToShareEnc + WindoOpenParams + "></a>" +wrap +
+                "<a class='email' href='mailto:?subject=" + h1ToShare + "&body=" +  h1ToShare + ' - ' + captionToShare + " " + urlToShare + "' ><b>@</b></a>" +wrap +
+                "<a class='FB' " + windowOpen + "http://www.facebook.com/sharer/sharer.php?u=" + urlToShareEnc + WindoOpenParams + "></a>";
+
+    
+
+        document.querySelector('#ta').value = shareMenu;
+</script>
+
+</body>
+</html>
