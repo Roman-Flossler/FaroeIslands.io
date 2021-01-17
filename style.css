@@ -375,7 +375,95 @@ li {
 }
 
 .footer {
-	padding: 3em 0 3em 0;
+	padding: 3.3em 0 0 0;
+	text-align: center;
+}
+
+.footer .block.right {
+	padding-bottom: 2em;
+	width: 64%;
+	float: right;
+}
+
+.footer .block.left {	
+	width: 150px;
+}
+
+.footer #uteaser {
+	width: 100%;
+	filter: blur(8px);
+}
+
+.footer #teaser {
+	filter: blur(33px);
+	width: 100%; 
+	position: absolute; 
+	top: 6px; 
+	right: 0;
+}
+
+.footer #farphotos {
+	position: absolute;
+	top: calc( 43% - 40px );
+	left: calc( 52% - 40px );
+	background: black;
+	padding: 0.6em;
+	width: 77px;
+	height: 77px;
+	color: white;
+	border-radius: 50%;	
+	mix-blend-mode: soft-light;
+	display: none;	
+	cursor: pointer;
+	line-height: 1.33em;
+}
+
+.footer #farphotos u {
+	text-decoration-style: wavy;
+	text-underline-position: under;
+}
+
+.footer #farphotos:hover {
+	mix-blend-mode: normal;
+	opacity: 0.66;
+}
+
+@media (orientation: portrait) {
+
+	.footer {
+		padding: 1em 0 0 0;
+	}
+	
+	#teaserBox {
+		width: 100%;
+		height: 58vh;
+		overflow: hidden;
+	}
+
+	#uteaser, #teaser {
+		width: auto !important;
+		height: 50vh;
+		max-width: none !important;
+	    left: -24vw;
+	}
+
+	.footer #uteaser {		
+		position: relative;		
+		filter: blur(6px);
+		top: calc( 8vh - 10px );
+	}
+
+	.footer #farphotos {
+		opacity: 0.5;		
+		background: #002348;
+		top: calc( 14% - 40px );
+		left: calc( 24% - 40px );
+		mix-blend-mode: normal;
+	}
+
+	.footer #teaser {
+		top: 8vh;
+	}
 }
 
 #travelinfoblock {
@@ -783,6 +871,10 @@ li {
 
 	#front-second, #front-first {		
 		width: 22%; 
+	}
+
+	#uteaser, #teaser {		
+	    left: -48vw;
 	}
 
 
