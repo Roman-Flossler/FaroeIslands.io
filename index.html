@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/story-show-gallery@2/dist/ssg.min.css">
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<link rel="shortcut icon" href="images/favicon.ico" />
 	
 	<meta property="og:locale" content="en_GB"/>
 	<meta property="og:site_name" content="FaroeIslands.io"/>
@@ -484,9 +485,7 @@
 		<div class="section-wave grass" ></div>
 		<div class="grass section footer">
 			<div class="block left" >
-				<p>© FaroeIslands.io<br>
-				<!-- a style="text-decoration: underline; cursor: pointer; margin-left: 1em;">Contact us</a -->
-				</p>
+				<p>© FaroeIslands.io <a id="mlai" href="#" style="text-decoration-style: dotted;">&nbsp;✉&nbsp;</a><br>
 			</div>
 	
 			<div class="block right"> 
@@ -629,7 +628,13 @@
 		})
 
 		jQuery(window).on('load', function() {
-			if (!imgLoading) initShow();			
+			if (!imgLoading) initShow();
+			
+			var pron4 = "mailto:info";
+			var pron3 = "@far";
+			var pron1 = "oeisl";
+			var pron2 = "ands.io";
+			jQuery('#mlai').attr('href',pron4+pron3+pron1+pron2);
 		})		
 		
 
