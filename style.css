@@ -522,22 +522,22 @@ li {
 	animation:none !important;
 }
 
-#rear-first {
+.rear-first {
 	top: 27%;
 	width: 27%; 
 }
 
-#rear-second {
+.rear-second {
 	top: 30.6%;
 	animation-name: onestepi;
 	animation-play-state: paused;
 }
 
-#front-first {
+.front-first {
 	top: 49%;
 }
 
-#front-second {
+.front-second {
 	top: 52.3%;
 	width: 26%; 
 	animation-name: onestepi;
@@ -874,7 +874,7 @@ li {
 	}
 
 
-	#front-second, #front-first {		
+	.front-second, .front-first {		
 		width: 22%; 
 	}
 
