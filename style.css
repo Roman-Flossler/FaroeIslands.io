@@ -541,6 +541,7 @@ li {
 	mix-blend-mode: hard-light;
 	filter: drop-shadow(0px 0px 16px rgb(0, 54, 47));
 	transition: top 0.6s ease-in-out;
+	z-index: 99999999999;
 }
 
 .runningUp {
@@ -641,6 +642,8 @@ li {
 
 }
 
+/* SSG theme override */
+
 
 #SSG1, #SSG_bg {
 	background-image: linear-gradient( to right, hsla(188, 18%, 25%, 0.88), hsla(143, 17%, 24%, 0.88)), url(bg/grass-texture.jpg) !important;	
@@ -689,8 +692,20 @@ li {
 
 html {
    scrollbar-width: thin;
+   scrollbar-color:  #F5F5F5 #c6cfcc !important; 
 }
 
+html.ssg-active.ssglight ::-webkit-scrollbar, html.ssg-active.ssglight ::-webkit-scrollbar-button {
+    background:#c6cfcc !important;
+}
+
+html.ssg-active.ssglight ::-webkit-scrollbar-thumb {
+    background: rgb(240, 240, 240) !important;
+}
+
+
+
+/* SSG theme override */
 
 
 @media (max-width: 1666px) {	

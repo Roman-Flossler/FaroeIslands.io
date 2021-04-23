@@ -1,6 +1,6 @@
 runAnimation = function() {
     if (noRunning) return;
-    window.isScrolling && window.clearTimeout( window.isScrolling );			
+    window.isScrolling && window.clearTimeout( window.isScrolling );
 
     firstRun && jQuery('.leg').addClass('play');
     firstRun = false;
