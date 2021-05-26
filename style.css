@@ -531,6 +531,12 @@ li {
 	content: ' »';
 }
 
+.move8 {
+	position: relative;
+	left: 8px;
+}
+
+
 .lambframe {
 	position: fixed;
 	left: 0px; 
@@ -649,8 +655,16 @@ li {
 	background-image: linear-gradient( to right, hsla(188, 18%, 25%, 0.88), hsla(143, 17%, 24%, 0.88)), url(bg/grass-texture.jpg) !important;	
 	background-image: linear-gradient( to right, hsla(186, 33%, 83%, 0.9), hsla(133, 27%, 83%, 0.9)), url(bg/grass-texture.jpg) !important;
 	background-image: linear-gradient( to right, hsla(187, 33%, 80%, 0.9), hsla(132, 30%, 80%, 0.9)), url(bg/grass-texture.jpg) !important;	
-	background-image: linear-gradient( to right, hsla(203, 11%, 79.2%, 0.90), hsla(131, 9%, 79%, 0.9)), url(bg/grass-texture.jpg) !important;	
+	background-image: linear-gradient( to left, hsla(203, 11%, 79.2%, 0.90), hsla(131, 9%, 79%, 0.9)), url(bg/grass-texture.jpg) !important;
 }
+
+@media (max-width: 933px) and (orientation: landscape) {
+	#SSG1, #SSG_bg {
+		background-image: linear-gradient( to right, hsla(203, 11%, 79.2%, 0.90), hsla(131, 9%, 79%, 0.9)), url(bg/grass-texture.jpg) !important;
+	}
+}
+
+
 
 #SSG1 p {	
 	background: url(bg/h2bg.png) no-repeat !important;	

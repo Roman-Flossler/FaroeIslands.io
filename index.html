@@ -541,8 +541,7 @@
 	</div>	
 
 
-	<!-- script src="https://cdn.jsdelivr.net/npm/story-show-gallery@2/dist/ssg.min.js"> </script -->
-	<script src="ssg/ssg.min.js"> </script>
+	<script src="https://cdn.jsdelivr.net/npm/story-show-gallery@2/dist/ssg.min.js"> </script>	
 	<script>
 		var counter = 0;
 		var portrait = window.screen.width < window.screen.height;
@@ -553,6 +552,7 @@
 		var firstRun = true;
 		var fraction = portrait ? 2:1;
 		var imgCount = 0;
+		var deeplinked = location.hash != "";
 		var imgLoading = false;
 		var teasered = false;
 		var mobile = window.matchMedia( '(max-width: 933px) and (orientation: landscape), (max-width: 500px) and (orientation: portrait) ' ).matches;
@@ -561,28 +561,55 @@
 		SSG.cfg.watermarkText = '🐑 Faroe&#8202;Islands&#8202;.io';
 		SSG.cfg.watermarkFontSize = 18;
 		SSG.cfg.fileToLoad = 'sp.html';
+
 		SSG.cfg.onGalleryStart = function() { 
 			stopHover();
+			jQuery('.lambframe img').attr("src", "images/ram.svg");
 			ssgrunning = true;
-			if (mobile) { lambStopRunning = true; jQuery('.lambframe').hide(); }
-			window.setTimeout( function () {   jQuery('#masterframe').toggleClass('hideit'); }, 1111 );
+			if ( mobile) {
+				if ( location.hash == "" || screen.width > screen.height ) {
+					lambStopRunning = true; jQuery('.lambframe').hide(); 
+				} else {
+					lambStopRunning = false; jQuery('#sheep3').hide();
+				}
+			}
+			window.setTimeout( function () { jQuery('#masterframe').toggleClass('hideit'); }, 1111 );
 		};
+
 		SSG.cfg.onGalleryExit =  function() { 
 			jQuery('#masterframe').toggleClass('hideit'); 
 			teasered && jQuery('#farphotos').html( "Enter photo <u>gallery</u>" );
 			jQuery('.lambframe').show();
 			lambStopRunning = false;
 			window.setTimeout(function() { ssgrunning = false; }, 300 );
-		};		
-		SSG.cfg.onImgChange = function (data) {
+		};
+		
+		SSG.cfg.onOrientationChange = function(data) {
+			if (!deeplinked) return;
+			if ( window.orientation == 0) {
+				lambStopRunning = false; jQuery('#sheep1, #sheep2').show(); 
+			} else {
+				lambStopRunning = true; jQuery('.lambframe').hide(); 
+			}
+		}
+
+		var sheepShow = function ( moveImg , data) {			
 			var imgOffset = jQuery('#SSG1 img#i' + data.imgGalleryId).offset(); 
 			if ( imgOffset.left < (screen.width / 100 ) * 3.3 ) {
 				jQuery('.lambframe').hide(666);
 			} else {
 				jQuery('.lambframe').show(666);
+				moveImg && jQuery('#SSG1 img#i' + data.imgGalleryId).addClass('move8');
+			}
+		};
+
+		if (!mobile) {
+			SSG.cfg.onImgView = sheepShow.bind(this, false );
+			SSG.cfg.onImgScrollsIn = sheepShow.bind(this, true );
+			SSG.cfg.onBeyondGallery = function (data)  {
+				jQuery('.lambframe').show(666);
 			}
 		}
-		SSG.cfg.onImgWillChange = SSG.cfg.onImgChange;
 		SSG.cfg.theme = 'light';
 		SSG.cfg.mobilePortraitFS = true;
 		SSG.cfg.preferedCaptionLocation =  3;
