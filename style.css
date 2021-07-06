@@ -665,6 +665,19 @@ li {
 }
 
 
+.ssglight #SSG1 figure img {
+    border-color: #c5c5c5;
+    box-shadow: 0 0 2px 0 #e2e2e2 !important;
+	border-radius: 4px;
+}
+
+@media (max-width: 550px) and (orientation: portrait) {
+.ssglight #SSG1 figure img {
+    box-shadow: 0 0 33px 0 #f8f8f8 !important;
+	border-radius: 0;
+}
+}
+
 
 #SSG1 p {	
 	background: url(bg/h2bg.png) no-repeat !important;	

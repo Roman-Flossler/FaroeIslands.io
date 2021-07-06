@@ -13,15 +13,15 @@
 	
 	<meta property="og:locale" content="en_GB"/>
 	<meta property="og:site_name" content="FaroeIslands.io"/>
-	<meta property="og:title" content="🐑 FaroeIslands.io - travel inspiration with map of top places on Faroe Islands."/>
+	<meta property="og:title" content="🐑 FaroeIslands.io - travel inspiration with map of places on the Faroe Islands."/>
 	<meta property="og:url" content="https://www.Faroeislands.io/"/>
 	<meta property="og:type" content="website"/>
-	<meta property="og:image" content="https://www.faroeislands.io/photos/view-of-funningur.jpg"/>
+	<meta property="og:image" content="https://www.faroeislands.io/#mykines-lightbhouse"/>
 	<meta property="og:description" content="World's most attractive archipelago with pristine nature."/>
-	<meta name="twitter:title" content="🐑 FaroeIslands.io - travel inspiration with map of top places on Faroe Islands. "/>
+	<meta name="twitter:title" content="🐑 FaroeIslands.io - travel inspiration with map of places on the Faroe Islands. "/>
 	<meta name="twitter:url" content="https://www.FaroeIslands.io/"/>
 	<meta name="twitter:description" content="World's most attractive archipelago with pristine nature."/>
-	<meta name="twitter:image" content="https://www.faroeislands.io/photos/view-of-funningur.jpg"/>
+	<meta name="twitter:image" content="https://www.faroeislands.io/photos/saksun-sheep.jpg"/>
 	<meta name="twitter:card" content="summary_large_image"/>
 	
 	    <!-- Google Analytics -->
@@ -390,7 +390,7 @@
 				</a>
 				
 				<a id="e1_" href="photos/saksun-sheep.jpg">
-					<img id="e1" src="images/e1.jpg" width="350" height="116" alt="of course, there are also sheeps" />
+					<img id="e1" src="images/e1.jpg" width="350" height="116" alt="Saksun - a small village surrounded by hills and waterfalls. Of course, there are also sheeps." />
 				</a>	
 				<a id="e2_" href="photos/saksun-ocean.jpg">
 					<img id="e2" src="images/e2.jpg" width="256" height="116" alt="Saksun - on the way to the ocean" />
@@ -561,10 +561,16 @@
 		SSG.cfg.watermarkText = '🐑 Faroe&#8202;Islands&#8202;.io';
 		SSG.cfg.watermarkFontSize = 18;
 		SSG.cfg.fileToLoad = 'sp.html';
+		SSG.cfg.theme = 'light';
+		SSG.cfg.mobilePortraitFS = true;
+		SSG.cfg.preferedCaptionLocation =  3;
+		
 
 		SSG.cfg.onGalleryStart = function() { 
 			stopHover();
-			jQuery('.lambframe img').attr("src", "images/ram.svg");
+			// when deeplinking, loading is stopped and sheeps isn't loaded. This solves the issue:
+			if (location.hash !== "") jQuery('.lambframe img').attr("src", "images/ram.svg");
+			jQuery('.lambframe').css("filter", "none");
 			ssgrunning = true;
 			if ( mobile) {
 				if ( location.hash == "" || screen.width > screen.height ) {
@@ -578,6 +584,7 @@
 
 		SSG.cfg.onGalleryExit =  function() { 
 			jQuery('#masterframe').toggleClass('hideit'); 
+			jQuery('.lambframe').css("filter", "drop-shadow(0px 0px 16px rgb(0, 54, 47))");
 			teasered && jQuery('#farphotos').html( "Enter photo <u>gallery</u>" );
 			jQuery('.lambframe').show();
 			lambStopRunning = false;
@@ -610,9 +617,18 @@
 				jQuery('.lambframe').show(666);
 			}
 		}
-		SSG.cfg.theme = 'light';
-		SSG.cfg.mobilePortraitFS = true;
-		SSG.cfg.preferedCaptionLocation =  3;
+		
+		// SSG.onImageLoad is just a test of enlarging images
+		SSG.onImageLoad_no = function ( event ) {
+			SSG.justLoadedImg = event.data.imgid;
+			
+			if ( jQuery('#SSG1 #i'+ event.data.imgid).innerHeight() < window.screen.height * 0.66 && SSG.landscapeMode && window.screen.width > 1600 ) {
+				jQuery('#SSG1 #i'+ event.data.imgid).css( 'height','81vh');
+			}
+			SSG.displayFormat( event );
+			SSG.refreshPos();
+			SSG.loadNextImg = true;
+		};
 
 		if(window.innerWidth / window.innerHeight > 2) jQuery('#ttips').addClass('visible');
 
