@@ -16,12 +16,12 @@
 	<meta property="og:title" content="🐑 FaroeIslands.io - travel inspiration with map of places on the Faroe Islands."/>
 	<meta property="og:url" content="https://www.Faroeislands.io/"/>
 	<meta property="og:type" content="website"/>
-	<meta property="og:image" content="https://www.faroeislands.io/#mykines-lightbhouse"/>
+	<meta property="og:image" content="https://www.faroeislands.io/photos/mykines-lightbhouse.jpg"/>
 	<meta property="og:description" content="World's most attractive archipelago with pristine nature."/>
 	<meta name="twitter:title" content="🐑 FaroeIslands.io - travel inspiration with map of places on the Faroe Islands. "/>
 	<meta name="twitter:url" content="https://www.FaroeIslands.io/"/>
 	<meta name="twitter:description" content="World's most attractive archipelago with pristine nature."/>
-	<meta name="twitter:image" content="https://www.faroeislands.io/photos/saksun-sheep.jpg"/>
+	<meta name="twitter:image" content="https://www.faroeislands.io/photos/mykines-lightbhouse.jpg"/>
 	<meta name="twitter:card" content="summary_large_image"/>
 	
 	    <!-- Google Analytics -->
@@ -315,6 +315,7 @@
 
 		<!-- Cuisine -->
 
+		<a name="cuisine"></a>
 		<div class="section-wave ocean t-88"></div>
 		<div class="ocean section">
 			<div class="block left first" >
@@ -332,6 +333,13 @@
 				But these meals are hard to find in menu of faroes restaurants, they usually offer a world cuisine. 
 				Even at petrol stations food has very high standard of quality - delicious meat is even in sausages.
 				</p>
+
+				<h2>Grindadráp tradition</h2>
+
+				<p>
+					As other nations hunt deer in the woods, Faroe Islanders hunt Pilot whales - it is a 1,000-Year tradition. 				
+					It is important to say that Pilot whales don't suffer (death happens very quickly), hunt is non-commercial and it does not endanger the Pilot whales population.
+				</p>				
 			</div>
 			<br clear="all">	
 		</div>
@@ -619,7 +627,7 @@
 		}
 		
 		// SSG.onImageLoad is just a test of enlarging images
-		SSG.onImageLoad_no = function ( event ) {
+		SSG.onImageLoad = function ( event ) {
 			SSG.justLoadedImg = event.data.imgid;
 			
 			if ( jQuery('#SSG1 #i'+ event.data.imgid).innerHeight() < window.screen.height * 0.66 && SSG.landscapeMode && window.screen.width > 1600 ) {
