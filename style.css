@@ -651,7 +651,7 @@ li {
 /* SSG theme override */
 
 
-#SSG1, #SSG_bg {
+.ssglight #SSG1, .ssglight #SSG_bg {
 	background-image: linear-gradient( to right, hsla(188, 18%, 25%, 0.88), hsla(143, 17%, 24%, 0.88)), url(bg/grass-texture.jpg) !important;	
 	background-image: linear-gradient( to right, hsla(186, 33%, 83%, 0.9), hsla(133, 27%, 83%, 0.9)), url(bg/grass-texture.jpg) !important;
 	background-image: linear-gradient( to right, hsla(187, 33%, 80%, 0.9), hsla(132, 30%, 80%, 0.9)), url(bg/grass-texture.jpg) !important;	
@@ -659,7 +659,7 @@ li {
 }
 
 @media (max-width: 933px) and (orientation: landscape) {
-	#SSG1, #SSG_bg {
+	.ssglight #SSG1, .ssglight #SSG_bg {
 		background-image: linear-gradient( to right, hsla(203, 11%, 79.2%, 0.90), hsla(131, 9%, 79%, 0.9)), url(bg/grass-texture.jpg) !important;
 	}
 }
@@ -679,35 +679,35 @@ li {
 }
 
 
-#SSG1 p {	
+.ssglight #SSG1 p {	
 	background: url(bg/h2bg.png) no-repeat !important;	
 	background-size: cover !important;	
 }
 
-#SSG1 p span, #SSG1 p, #SSG_lastone .SSG_icell .SSG_icapt  {
+.ssglight #SSG1 p span, .ssglight #SSG1 p, .ssglight #SSG_lastone .SSG_icell .SSG_icapt  {
 	color: black !important; 
 	text-shadow: 1px 1px 13px white !important;
 }
 
-#SSG1 figure:not(.SSG_uwide):not(.notitle) #p0 .SSG_tipCall {
+.ssglight #SSG1 figure:not(.SSG_uwide):not(.notitle) #p0 .SSG_tipCall {
 	opacity: 1 !important;
 }
 
-#SSG1 .SSG_uwide span.share, #SSG1 .SSG_uwide p.uwtitle>span {
+.ssglight #SSG1 .SSG_uwide span.share, .ssglight #SSG1 .SSG_uwide p.uwtitle>span {
 	background-color: transparent !important;
 }
 
-#SSG_menu #SSGL {
+.ssglight #SSG_menu #SSGL {
     color: #4b4b4b !important;
 	text-shadow: 0 0px 11px white !important;
 }
 
-#SSG_menu a.SSG_link {
+.ssglight #SSG_menu a.SSG_link {
     color: #a7001f !important;
 	text-shadow: 0 0px 11px white !important;
 }
 
-#SSG_lastone .SSG_signpostH1 {
+.ssglight #SSG_lastone .SSG_signpostH1 {
     color: #5e707d !important;
 }
 
