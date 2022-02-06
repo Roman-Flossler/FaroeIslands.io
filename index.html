@@ -7,7 +7,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/story-show-gallery@2/dist/ssg.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/story-show-gallery@3/dist/ssg.min.css">
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<link rel="shortcut icon" href="images/favicon.ico" />
 	
@@ -38,6 +38,13 @@
 		<!-- End Google Analytics -->
 </head>
 <body>
+	<nav id='mainmenu'>
+		<ul>
+			<li><a href="https://www.faroeislands.io/">Faroe&#8202;Islands&#8202;.io</a></li>
+			<li><a href="/webcams">Webcams</a></li>
+			<li><a href="/#places">Top places</a></li>			
+		</ul>
+	</nav>
 	<div id="masterframe">
 		<span id="io">
 			.io
@@ -79,7 +86,7 @@
 	</div>
 
 	<!-- places photos and map -->
-
+	<a name="places"></a>
 	<div class="wavebox t-88 invert">
 		<div class="wave"></div>
 		<div class="wave w2"></div>
@@ -491,8 +498,8 @@
 			<div class="wave w2"></div>
 			<div class="wave w3"></div>
 		</div>
-		<div class="section-wave grass" ></div>
-		<div class="grass section footer">
+		<div class="section-wave grass nofilter" ></div>
+		<div class="grass section footer nofilter">
 			<div class="block left" >
 				<p>© FaroeIslands.io <a id="mlai" href="#" style="text-decoration-style: dotted;">&nbsp;✉&nbsp;</a><br>
 			</div>
@@ -563,6 +570,8 @@
 		var imgLoading = false;
 		var teasered = false;
 		var mobile = window.matchMedia( '(max-width: 933px) and (orientation: landscape), (max-width: 500px) and (orientation: portrait) ' ).matches;
+		var ssgDemoRun = false;
+
 		ssgrunning = false;
 
 		var sheepShow = function ( moveImg , data) {			
@@ -726,22 +735,24 @@
 
 	</script>
 
-	<script src="https://cdn.jsdelivr.net/npm/story-show-gallery@2.10.12/dist/ssg.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/story-show-gallery@3/dist/ssg.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/exifr@7/dist/lite.umd.js"></script>
 	<script>
 		SSG.cfg.watermarkText = '🐑 Faroe&#8202;Islands&#8202;.io';
 		SSG.cfg.watermarkFontSize = 18;
 		SSG.cfg.fileToLoad = 'sp.html';
 		SSG.cfg.theme = window.document.documentMode ? 'dim' : 'light';
 		SSG.cfg.mobilePortraitFS = true;
-		SSG.cfg.preferedCaptionLocation =  3;		
+		SSG.cfg.preferedCaptionLocation =  3;
+		SSG.cfg.watermarkOpacity = 0.44;
 
 		SSG.cfg.onGalleryStart = function() { 
 			stopHover();
 			// when deeplinking, loading is stopped and sheeps isn't loaded. This solves the issue:
 			if (location.hash !== "") jQuery('.lambframe img').attr("src", "images/ram.svg");
 			// jQuery('.lambframe').css("filter", "none");
+			// for ie11
 			window.document.documentMode && jQuery('.lambframe').css('opacity','0.2');
-			console.log(window.document.documentMode)
 			ssgrunning = true;
 			if ( mobile) {
 				if ( location.hash == "" || screen.width > screen.height ) {
@@ -761,6 +772,7 @@
 			jQuery('.lambframe').show();
 			lambStopRunning = false;
 			window.setTimeout(function() { ssgrunning = false; }, 300 );
+			ssgDemoRun &&  jQuery('.lambframe').css('opacity','1');
 		};
 		
 		SSG.cfg.onOrientationChange = function(data) {
@@ -783,14 +795,59 @@
 		// SSG.onImageLoad is just a test of enlarging images
 		SSG.onImageLoad = function ( event ) {
 			SSG.justLoadedImg = event.data.imgid;
+			var cImgH = jQuery('#SSG1 #i'+ event.data.imgid).innerHeight();
+			var cImgW = jQuery('#SSG1 #i'+ event.data.imgid).innerWidth();
+			var ww = window.innerWidth;
+			var wh = window.innerHeight;
+			var imgRatio = cImgW / cImgH;
+			var scrRatio = ww / wh;
 			
-			if ( jQuery('#SSG1 #i'+ event.data.imgid).innerHeight() < window.screen.height * 0.66 && SSG.landscapeMode && window.screen.width > 1600 ) {
-				jQuery('#SSG1 #i'+ event.data.imgid).css( 'height','81vh');
+			//console.log('img: ' + cImgW + ' x ' + cImgH + ' - screen: '  + ww + ' x ' + wh );
+			if ( cImgH < wh * 0.66 && cImgW < ww * 0.66 && SSG.landscapeMode && ww > 1600 ) {
+					if (imgRatio < scrRatio) {
+						jQuery('#SSG1 #i'+ event.data.imgid).css( {'height':'81vh'}); 
+					} else {
+						jQuery('#SSG1 #i'+ event.data.imgid).css( {'width':'83vw'}); 
+					}
+				// console.log('BIGa')
 			}
 			SSG.displayFormat( event );
 			SSG.refreshPos();
 			SSG.loadNextImg = true;
 		};
+
+		demo = [];
+            demo[ 0 ] = {
+                href: 'photos/ssg/puffins.jpg',
+                alt: 'With Story Show Gallery you can present your photo stories in full screen.'
+            };
+            demo[ 1 ] = {
+                href: 'photos/ssg/mulafossur-panorama.jpg',
+                alt: 'You can easily browse the gallery just by scrolling. No need to clicking on arrows.'
+            };
+            demo[ 2 ] = {
+                href: 'https://roman-flossler.github.io/StoryShowGallery/img/gallery-compare.jpg',
+                alt: 'SSG vs. usual web gallery. SSG use even notch area of a phone and doesn\'t display bars and icons over a photo.'
+            };
+            demo[ 3 ] = {
+                href: 'https://roman-flossler.github.io/StoryShowGallery/img/story-show-gallery-responsive-modes-fullscreen.jpg',
+                alt: 'Captions can be below the image or next to the image according to space on display.'
+            };
+
+			if (location.hash == '#ssg') {
+					ssgDemoRun = true;
+					SSG.restart = function(config) { 
+						SSG.destroyGallery('restart');
+						if (config) config.restart = true;
+						if(!config.cfg) config.cfg = {};
+						//config.cfg.theme = SSG.theme;
+						SSG.run(config);
+					}
+					SSG.run( { imgs: demo, fsa:true, cfg: {  fileToLoad: 'ssg.html', theme: 'dim', captionExif: "trim" }  });
+					jQuery('.lambframe').css('opacity','0');
+                }
+
+
 	</script>
 	
 </body>

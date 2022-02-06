@@ -1,0 +1,51 @@
+body {
+    padding-top: 0;
+    background: none;    
+    background-color: #750015
+}
+
+html {
+    background: none;
+}
+
+header {
+    height: 50vh;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header h1 {
+    background: none;
+    color: white;
+    margin: 0;
+    padding-top: 20vh;
+}
+
+header p {
+    color: white;
+    background:rgba(0, 0, 0, 0.4);
+    width: 33%;
+    margin: auto;
+    padding: 0.3em 1em;
+}
+
+.camimg {
+    width: 100%;
+    display: block;
+}
+
+.grass {
+    filter: none !important;
+}
+
+.camimg img {
+    width: 100%;
+    border-radius: 3%;
+}
+
+@media (max-width: 555px)  {
+    header p {
+        display: none;
+    }
+}

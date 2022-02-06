@@ -17,15 +17,17 @@
 
 
 body {
-	background: url(bg/faroe-bg.jpg) no-repeat #750015;
+	background-image: url(bg/faroe-bg.jpg);	
+	background-repeat: no-repeat;	
 	background-size: 100%;
+	background-position-y: 48px;
 	margin: 0;
 	padding: 0;
 	font-size: 100%;
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 	font-weight: normal;
 	line-height: 1.5em;
-	padding-top:  40vw;	
+	padding-top:  calc( 40vw + 48px );	
 }
 
 html {
@@ -126,11 +128,46 @@ p a:hover, li a:hover {
 	box-shadow: 0 0 14px #007ab3;
 }
 
+#mainmenu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 66;
+	width: 100%;
+	text-align: center;	
+	height: 48px;
+	overflow: hidden;
+}
+
+#mainmenu ul {		
+	margin: 0;
+	background: linear-gradient(to bottom, #2d3b44, #40576aa8);	
+}
+
+#mainmenu ul li {
+	display: inline-block;
+	line-height: 48px;
+    padding: 0 2em;    
+	margin: 0;
+}
+#mainmenu ul li a {
+	color: white;
+	font-size: 1.1em;
+	text-decoration: none;
+	font-weight: 400;
+}
+
+#mainmenu ul li:first-child {
+	font-family: 'Gabriela', sans-serif;
+	letter-spacing: 1px;
+	font-size: 1.3em;
+}
+
 #header {
 	height: 40vw;
 	position: absolute;
 	z-index: 33;
-	top: 0;
+	top: 48px;
 	left: 0;
 }
 
@@ -214,6 +251,10 @@ li {
 
 #seepic:hover span {
 	left: 0em;
+}
+
+.grass:not(.nofilter) {
+	filter: brightness(1.1);
 }
 
 .grass {
@@ -364,7 +405,7 @@ li {
 #io {	
 	position: absolute;
 	left: 86vw;	
-	top: 33.3vw;
+	top: calc( 33.3vw + 48px );
 	font-size: 4.4vw;	
 	font-family: 'Gabriela';
 	color: white;
@@ -783,7 +824,7 @@ html.ssg-active.ssglight ::-webkit-scrollbar-thumb {
 
 	#io {
 		left: 88vw;	
-		top: 34.3vw;
+		top: calc( 34.3vw + 48px );
 		font-size: 5vw;
 	}
 
@@ -855,7 +896,7 @@ html.ssg-active.ssglight ::-webkit-scrollbar-thumb {
 	}
 
 	body {
-		background-size: 101%;
+		background-size: 108%;
 	}
 
 }
@@ -868,9 +909,9 @@ html.ssg-active.ssglight ::-webkit-scrollbar-thumb {
 @media (max-width: 555px)  {
 
 	body {
-		background-size: 241%;
-		background-position:  -49vw 0;
-		padding-top:  98vw;
+		background-size: 243%;
+		background-position-x:  -49vw;
+		padding-top:  calc( 98vw + 48px );
 		font-size: 17px;
 	}
 
@@ -886,6 +927,29 @@ html.ssg-active.ssglight ::-webkit-scrollbar-thumb {
 	#header {
 		height: 98vw;
 	}
+
+	#mainmenu:hover {
+		overflow: visible;		
+	}
+
+	#mainmenu {
+		box-sizing: border-box;
+	}
+
+	#mainmenu ul {
+		padding-right: 30px;
+	}
+
+	#mainmenu::after {
+		content: '☰';
+		filter: brightness(1.8);
+		position: absolute;
+		top: 12px;
+		right: 12px;
+		color: #a0bcc7;
+	}
+
+	
 
 	.block, .block.right {
 		float: none;
@@ -939,8 +1003,8 @@ html.ssg-active.ssglight ::-webkit-scrollbar-thumb {
 	}
 
 	#io {
-		left: 79vw;
-		top: 96.3vw;
+		left: 79vw;		
+		top: calc( 100vw + 28px );
 		font-size: 8.8vw;
 	}
 
@@ -952,7 +1016,7 @@ html.ssg-active.ssglight ::-webkit-scrollbar-thumb {
 	#seepic {
 		font-size: 4.3vw;
 		line-height: 4.5vw;
-		top: 40vw;
+		top: calc( 48vw + 28px );
 		left: auto;
 		right: 11vw;
 		display: block;
