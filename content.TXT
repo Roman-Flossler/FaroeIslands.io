@@ -1,0 +1,82 @@
+<h2>Torshawn – capital town</h2>
+
+<h3>How to get there</h3>
+Torshavn is located on another island than airport. There is a submarine tunel (this one is paid),
+ so you can rent a car or take a bus to get to Torshavn from the airport. 
+ If you travel to the Faroe Islands by ferry from Denmark, you will land directly in Torshavn.
+
+<h3>What to see</h3>
+
+Tinganes is Torshavn's old town, it was built in 16th century and people still live there.
+Tinganes means  "parliament jetty" or "parliament point" and the parliament met there for the first time in the Viking ages (one of the oldest in the world). 
+Tinganes is still used 
+
+
+<h2>Traveling through Tunnels</h2>
+There are lot of tunnels on Fareoe Islands, but toll is only paid when you drive through one of submarine tunnels. 
+One way through tunnel costs 100 DKK and it should be paid at gas station within 48 hours. If you drive rented car, 
+you don't have to worry about it, rental company takes care about toll payment.
+
+
+All three submarine tunnels are marked on the map, the newest one has even a roundabout under the sea.
+
+Because the mountain on the Faroe Islands are quite high, it isn't unusual, that there is a different weather on the other side of the tunnel.
+It is always good idea to check webcams, to see real weather in place, before you go there.
+
+<h2>Traveling by bus and ferries</h2>
+Buses and ferries operates Strandfaraskip Landsins (SSL), which is nationally owned and provides transport to all corners of the Faroe Islands.
+Travel map, ticket prices, rules and all other information are on SSL website - www.ssl.fo
+
+There may be not enough space in public transport for larger groups, so if you wish to use bus or ferry in group of more than 10 people,
+you need to book transport in advance - https://www.ssl.fo/en/booking/
+
+Ferry to Mykines island has to booked even if you are a sole traveler. You can do it on website https://www.mykines.fo/. It is good idea to do it as soon as possible,
+because Mykines is very popular destination due to Papuchalks and hike to lighthouse. 
+
+
+<h2>Helicopter flight</h2>
+
+Helicopter transport service is mainly for locals which lives on remote islands. It is subsidized by the government and so the flights are very cheap. 
+For example on way ticket from Vagar to Mykines island costs only 145 DKK, you can see prices here. https://www.atlanticairways.com/en/helicopter/fares-and-conditions
+
+Even a tourist can take a helicopter ride, but there are some limitations. You cannot book round trip with helicopter, you can only book one one way ticket on the same day.
+Bookings has to be made no eariler than seven days before departure. You can book helicopter ticket at Atlantic Airways website https://www.atlanticairways.com/en/helicopter
+
+Atlantic Airways offers also sightseeing helicopter flights, for example you can experience James Bond filming location from above. 
+https://www.atlanticairways.com/en/helicopter/experience-james-bond-locations
+Twenty minutes of flight costs 1500 DKK per person.
+
+
+https://www.youtube.com/watch?v=R-iAu7Y2pvo
+
+			<li class="parent"><a href="/#places">Top places</a>
+				<ul>
+					<li>Torshavn</li>
+					<li>Klaksvík</li>
+					<li>Mykines</li>
+					<li>Gasadalur</li>
+					<li>Kalsoy</li>
+					<li>Traelanipa</li>
+				</ul>
+			</li>
+			<li class="parent"><a href="/#places">Useful info</a>
+				<ul>
+					<li>tunnels</li>
+					<li>public transport</li>
+					<li>Weather</li>
+					<li>How to get there</li>
+					<li>Gasadalur</li>
+					<li>Taking photos</li>				
+				</ul>
+			</li>
+
+
+
+
+
+
+
+
+
+
+

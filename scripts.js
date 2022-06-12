@@ -7,6 +7,9 @@ SSG.cfg.preferedCaptionLocation = 3;
 SSG.cfg.watermarkOpacity = 0.44;
 SSG.cfg.enlargeImg = true;
 SSG.cfg.imgBorderRadius = "0.3";
+SSG.cfg.imgBorderColor = "#dddddd";
+SSG.cfg.imgBorderWidthX =  1;
+SSG.cfg.imgBorderWidthY =  1;
 
 var scrollPos = window.pageYOffset;
 var speedUpCounter = 0;
@@ -57,7 +60,7 @@ jQuery("body").append(`
 <div class="leg rear-second"></div>
 <div class="leg front-first"></div>
 <div class="leg front-second"></div>
-<img src="https://www.faroeislands.io/images/lamb.svg" alt="lamb" style=" position: absolute; width: 111%; top: 16%; left: auto; right: 0%;">
+<img src="https://www.faroeislands.io/visuals/images/lamb.svg" alt="lamb" style=" position: absolute; width: 111%; top: 16%; left: auto; right: 0%;">
 </div>
 
 <div id="sheep2" class="lambframe" style="top: 81vh;">		
@@ -65,7 +68,7 @@ jQuery("body").append(`
 <div class="leg rear-second"></div>
 <div class="leg front-first"></div>
 <div class="leg front-second"></div>
-<img src="https://www.faroeislands.io/images/lamb.svg" alt="lamb" style=" position: absolute; width: 111%; top: 16%; left: auto; right: 0%;">
+<img src="https://www.faroeislands.io/visuals/images/lamb.svg" alt="lamb" style=" position: absolute; width: 111%; top: 16%; left: auto; right: 0%;">
 </div>
 
 <div id="sheep3" class="lambframe" style="top: 55vh">
@@ -73,7 +76,7 @@ jQuery("body").append(`
 <div class="leg rear-second"></div>
 <div class="leg front-first"></div>
 <div class="leg front-second"></div>
-<img src="https://www.faroeislands.io/images/ram.svg" alt="ram" style=" position: absolute; width: 111%; top: 16%; left: auto; right: 0%;">
+<img src="https://www.faroeislands.io/visuals/images/ram.svg" alt="ram" style=" position: absolute; width: 111%; top: 16%; left: auto; right: 0%;">
 </div>	`);
 
 var sheepShow = function (moveImg, data) {
@@ -167,11 +170,12 @@ jQuery(".lambframe").on("mouseout", stopRunning);
 SSG.cfg.onGalleryStart = function () {
   window.stopHover && stopHover();
   // when deeplinking, loading is stopped and sheeps isn't loaded. This solves the issue:
-  if (location.hash !== "")
-    jQuery(".lambframe img").attr("src", "images/ram.svg");
-  // jQuery('.lambframe').css("filter", "none");
+  if (location.hash !== "") {
+    jQuery(".lambframe img").attr("src", "visuals/images/ram.svg");
+  }  
+  jQuery(".lambframe").css("filter", "none"); // no sheep shadow
   // for ie11
-  window.document.documentMode && jQuery(".lambframe").css("opacity", "0.2");
+  // window.document.documentMode && jQuery(".lambframe").css("opacity", "0.2");
   ssgrunning = true;
   if (mobile) {
     if (location.hash == "" || screen.width > screen.height) {
@@ -189,7 +193,7 @@ SSG.cfg.onGalleryStart = function () {
 
 SSG.cfg.onGalleryExit = function () {
   jQuery("#masterframe").toggleClass("hideit");
-  // jQuery('.lambframe').css("filter", "drop-shadow(0px 0px 16px rgb(0, 54, 47))");
+  jQuery('.lambframe').css("filter", "drop-shadow(0px 0px 16px rgb(0, 54, 47))");
   teasered && jQuery("#farphotos").html("Enter photo <u>gallery</u>");
   window.document.documentMode && jQuery(".lambframe").css("opacity", "1");
   jQuery(".lambframe").show();

@@ -136,12 +136,14 @@ p a:hover, li a:hover {
 	width: 100%;
 	text-align: center;	
 	height: 48px;
-	overflow: hidden;
+	overflow: hidden; /* delete this for submneu */
 }
 
-#mainmenu ul {		
+#mainmenu > ul {		
 	margin: 0;
 	background: linear-gradient(to bottom, #2d3b44, #40576aa8);	
+/*	display: flex;
+	justify-content: center; uncoment for submenu */ 
 }
 
 #mainmenu ul li {
@@ -157,7 +159,30 @@ p a:hover, li a:hover {
 	font-weight: 400;
 }
 
-#mainmenu ul li:first-child {
+#mainmenu ul li.parent {
+	height: 49px;
+	overflow: hidden;
+	display: inline-block;
+	box-sizing: border-box;
+	width: 178px;
+}
+
+#mainmenu ul li.parent ul {
+	background: linear-gradient(to bottom, #2d3b44, #40576a);
+	text-align: left;	
+	padding-left: 0;
+	color: white;
+}
+
+#mainmenu ul li.parent:hover {
+	overflow: visible;
+}
+
+#mainmenu ul li.parent ul {
+	width: 200px;
+}
+
+#mainmenu > ul > li:first-child {
 	font-family: 'Gabriela', sans-serif;
 	letter-spacing: 1px;
 	font-size: 1.3em;
@@ -190,10 +215,10 @@ h1, h2 {
 }
 
 #g1 a:hover, #g2 a:hover, #seepic:hover, #map:hover {
-	cursor: url(images/enter.png), pointer;
+	cursor: url(visuals/images/enter.png), pointer;
 	cursor: -webkit-image-set(
-        url(images/enter.png) 1x,
-        url(images/enter2.png) 2x
+        url(visuals/images/enter.png) 1x,
+        url(visuals/images/enter2.png) 2x
 ), pointer;    
 }
 
@@ -689,7 +714,7 @@ li {
 
 }
 
-/* SSG theme override */
+/* ------------------------ SSG theme override ------------------------------------*/
 
 
 .ssglight #SSG1, .ssglight #SSG_bg {
@@ -706,10 +731,10 @@ li {
 }
 
 
-.ssglight #SSG1 figure img {
-    border-color: #c5c5c5;
-    box-shadow: 0 0 2px 0 #e2e2e2 !important;
+.ssglight #SSG1 figure .SSG_imgWrap img {
+    border-color: #c5c5c5;    
 	border-radius: 4px;
+	/*box-shadow: 0 0 33px 0 #dddddd !important;*/
 }
 
 @media (max-width: 550px) and (orientation: portrait) {
@@ -723,6 +748,14 @@ li {
 .ssglight #SSG1 p {	
 	background: url(visuals/bg/h2bg.png) no-repeat !important;	
 	background-size: cover !important;	
+}
+
+.ssglight #SSG1 p.title > span {
+	transform: translateY(0.2vh);
+}
+
+.ssglight #SSG1 p.title {
+	background-position-y: -2px !important;
 }
 
 .ssglight #SSG1 p span, .ssglight #SSG1 p, .ssglight #SSG_lastone .SSG_icell .SSG_icapt  {

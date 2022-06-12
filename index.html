@@ -42,7 +42,7 @@
 		<ul>
 			<li><a href="https://www.faroeislands.io/">Faroe&#8202;Islands&#8202;.io</a></li>
 			<li><a href="/webcams">Webcams</a></li>
-			<li><a href="/#places">Top places</a></li>			
+			<li><a href="/#places">Top places</a></li>
 		</ul>
 	</nav>
 	<div id="masterframe">
@@ -584,7 +584,9 @@
 	</script>
 
 	<script src="https://cdn.jsdelivr.net/npm/story-show-gallery@3/dist/ssg.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/exifr@7/dist/lite.umd.js"></script>
+	<script>
+        (location.hash == '#ssg' && document.write('<script src="https://cdn.jsdelivr.net/npm/exifr@7/dist/lite.umd.js"><\/script>'));
+    </script>	
 	<script src="scripts.js"></script>
 	<script>
 		
